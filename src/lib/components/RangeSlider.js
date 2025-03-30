@@ -30,6 +30,7 @@ class RangeSlider extends PureComponent {
     this.element = createRef()
     this.input = []
     this.thumb = [createRef(), createRef()]
+    this.thumbNum = [createRef(), createRef()]
     this.range = createRef()
 
     this.options = {}
@@ -317,6 +318,7 @@ class RangeSlider extends PureComponent {
   updateThumbs () {
     this.iterateMinMaxProps(_ => {
       this.thumb[this.index[_]].current.style[this.ifVerticalElse('top', 'left')] = `calc(${((this.value[_] - this.options.min) / this.maxRangeWidth) * 100}% + ${(0.5 - ((this.value[_] - this.options.min) / this.maxRangeWidth)) * this.ifVerticalElse(this.thumbHeight, this.thumbWidth)[_]}px)`
+      this.thumbNum[this.index[_]].current.style[this.ifVerticalElse('top', 'left')] = `calc(${((this.value[_] - this.options.min) / this.maxRangeWidth) * 100}% + ${(0.5 - ((this.value[_] - this.options.min) / this.maxRangeWidth)) * this.ifVerticalElse(this.thumbHeight, this.thumbWidth)[_]}px)`
     })
   }
 
@@ -576,11 +578,15 @@ class RangeSlider extends PureComponent {
 
     this.safeMinMaxValues()
     this.safeThumbsDisabledValues()
+    console.log(this.value)
+    console.log(this.options.defaultValue)
 
     return (
       <div data-testid='element' id={this.props.id} ref={this.element} className={clsx('range-slider', this.props.className)}>
         <div ref={this.thumb[0]} role='slider' className='range-slider__thumb' data-lower aria-label={this.props?.ariaLabel?.[0]} aria-labelledby={this.props?.ariaLabelledBy?.[0]} />
         <div ref={this.thumb[1]} role='slider' className='range-slider__thumb' data-upper aria-label={this.props?.ariaLabel?.[1]} aria-labelledby={this.props?.ariaLabelledBy?.[1]} />
+        <div ref={this.thumbNum[0]} className="range-slider__number"> {this?.value?.min?.toFixed() || this.options.defaultValue?.[0]}</div>
+        <div ref={this.thumbNum[1]} className="range-slider__number"> {this?.value?.max?.toFixed() || this.options.defaultValue?.[1]}</div>
         <div ref={this.range} className='range-slider__range' />
       </div>
     )

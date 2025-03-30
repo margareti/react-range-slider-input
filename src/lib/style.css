@@ -29,6 +29,31 @@
   border-radius: 50%;
   background: #2196f3;
 }
+
+.range-slider__number {
+  border: 1px solid black;
+  position: absolute;
+  transform: translate(-50%, calc(-50% - 28px));
+  background: white;
+  z-index: 4;
+  padding: 2px 6px;
+  font-family: Arial, sans-serif;
+  border-radius: 2px;
+}
+.range-slider__number::before {
+  content: "";
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 7px solid black;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  bottom: -47%;
+}
+
+
 .range-slider .range-slider__thumb:focus-visible {
   outline: 0;
   box-shadow: 0 0 0 6px rgba(33, 150, 243, 0.5);
