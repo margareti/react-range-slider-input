@@ -578,8 +578,6 @@ class RangeSlider extends PureComponent {
 
     this.safeMinMaxValues()
     this.safeThumbsDisabledValues()
-    console.log(this.value)
-    console.log(this.options.defaultValue)
 
     return (
       <div data-testid='element' id={this.props.id} ref={this.element} className={clsx('range-slider', this.props.className)}>
