@@ -1,5 +1,5 @@
 {
-  "name": "react-range-slider-input",
+  "name": "react-range-slider-input-with-numbers",
   "version": "3.2.1",
   "private": false,
   "description": "React component wrapper for range-slider-input",
@@ -23,10 +23,10 @@
     "LICENSE"
   ],
   "license": "MIT",
-  "homepage": "https://n3r4zzurr0.in/range-slider-input/",
+  "homepage": "https://margareti.in/range-slider-input/",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/n3r4zzurr0/react-range-slider-input.git"
+    "url": "git+https://github.com/margareti/react-range-slider-input.git"
   },
   "standard": {
     "ignore": [
